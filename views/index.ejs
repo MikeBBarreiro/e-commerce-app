@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NTARA FED EVAL</title>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <div id="app" class="fluid-container">
+        <div id="header">
+            <div>217-837-2790</div>
+            <div>Direction</div>
+            <div>Contact Us</div>
+        </div>
+        <div id="nav-container">
+            <div class="parent-logo-container">
+                <div class="logo-container">
+                    <!-- <img id="logo" src="https://www.artifilabs.com/media/2333/ntara-logo-open-graph.jpg"> -->
+                    <img id="logo" src="/img/Leo.png">
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="http://localhost:3000/">
+                    <div class="">SHOP</div>
+                </a>
+                <a href="http://localhost:3000/aboutus">
+                    <div class="">ABOUT US</div>
+                </a>
+                <a href="http://localhost:3000/stores">
+                    <div class="">STORES</div>
+                </a>
+                <a href="http://localhost:3000/deals">
+                    <div class="">DEALS</div>
+                </a>
+            </div>
+        </div>
+        <div id="main-content-container">
+            <div class="row">
+                <div class="col-md-12 col-lg-3 " style="padding: 0">
+                    <div id="left-child-content-container">
+                        <div class="left-search-container">
+                            <input type="text" v-model="productSearch" v-on:click="inputSearchProductClick" placeholder="Search Product">
+                            <!-- <i class="fas fa-search"></i> -->
+                            <img class="magnifying-icon" src="/img/mag.png" width=25 />
+
+                        </div>
+                        <div class="left-menu-options-container">
+                            <div class="left-menu-li">
+                                <span>Menu</span>
+                                <!-- <ul>
+                                    <li>Clothing</li>
+                                    <li>Shoes</li>
+                                    <li>Accessories</li>
+                                    <li>Baby</li>
+                                    <li>Home</li>
+                                    <li>Toys</li>
+                                    <li>VIEW ALL</li>
+                                </ul> -->
+                                <ul>
+                                    <li v-on:click="productSearchClothing">Clothing</li>
+                                    <li v-on:click="productSearchShoes">Shoes</li>
+                                    <li v-on:click="productSearchAccessories">Accessories</li>
+                                    <li v-on:click="productSearchBaby">Baby</li>
+                                    <li v-on:click="productSearchHome">Home</li>
+                                    <li v-on:click="productSearchToys">Toys</li>
+                                    <li v-on:click="productSearchViewAll">VIEW ALL</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-9" style="padding: 0">
+                    <div id="right-child-content-container">
+                        <app-product ref="productsChildComp" :search="productSearch"></app-product>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="parent-logo-container">
+                        <div class="logo-container">
+                            <img id="logo" src="/img/Leo.png" style="width:124px;">
+                        </div>
+                        <div class="row footer-col-container">
+                            <div class="col-4">
+                                <div class="footer-sections">
+                                    <ul>
+                                        <li>ABOUT US</li>
+                                        <li>Our Team</li>
+                                        <li>Directions</li>
+                                        <li>Mission</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="footer-sections">
+                                    <ul>
+                                        <li>Customer Service</li>
+                                        <li>Contact Us</li>
+                                        <li>Shippin</li>
+                                        <li>Returns</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="footer-sections">
+                                    <h5>FOLLOW US</h5>
+                                    <img class="fb-f-img" src="/img/fb.png">
+                                    <img class="tw-f-img" src="/img/tw.png">
+                                    <button class="getDirections-btn" >GET DIRECTIONS</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <div class="sole">
+                    <div>
+                        <span>© Copyright 2017 Ntara. All rights reserved.</span>
+                    </div>
+                    <div>
+                        <span>Privacy</span>
+                    </div>
+                    <div>
+                        <span>Sitemap</span>
+                    </div>
+                </div>
+            </div>
+            <!-- <ul class="pagination-list">
+                <li>
+                    <a @click="prev"> Prev </a>
+                </li>
+                <li>
+                    <span class="pagination-link go-to has-text-orange" aria-label="Goto page 1">Page {{ current }}</span>
+                    <span> of {{pageSize}}</span>
+                </li>
+                <li>
+                    <a @click="next()"> Next </a>
+                </li>
+
+                <li>
+                    <input v-model="current" type="text" class="pagination-link" />
+                </li>
+                <li>
+                    <button class="button">Go</button>
+                </li>
+            </ul> -->
+
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<!-- <script type="text/javascript" src="/js/bootstrap.min.js"></script> -->
+<script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="/js/popper.min.js"></script>
+
+<script type="module" src="/js/index.js" ></script>
+</html>
