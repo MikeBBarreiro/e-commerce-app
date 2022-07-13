@@ -3,6 +3,7 @@ const ejs = require("ejs");
 const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
+const PORT = process.env.PORT || 3000
 
 
 app.use(bodyParser.urlencoded({
@@ -16,8 +17,8 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
 var products = [
-    {name:'Black Dress Shoes', price: 15.00, category: 'shoes', image: 'https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Executive-Blac-211122_1024x1024_crop_bottom.jpg?v=1637710457'}, 
-    {name:'Gold Sneakers', price: 15.00, category: 'shoes', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXFIG0vPRrehLkKAIwdfRN6lbhVLoEEBrQ3wXEt4NQIK6EBK-gO0e2jLSYDN9JPBy-dFo&usqp=CAU'}, 
+    {name:'Black Dress Shoes', price: 15.00, category: 'shoes', image: 'https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Executive-Blac-211122_1024x1024_crop_bottom.jpg?v=1637710457'},
+    {name:'Gold Sneakers', price: 15.00, category: 'shoes', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXFIG0vPRrehLkKAIwdfRN6lbhVLoEEBrQ3wXEt4NQIK6EBK-gO0e2jLSYDN9JPBy-dFo&usqp=CAU'},
     {name:'Red Heels', price: 25.00, category: 'shoes', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9tRkyMxKVaz0z5sGgVBFV_pQIh851PkI_Cg&usqp=CAU'},
     {name:'Black Heels', price: 27.00, category: 'shoes', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN2QgEbc24SJatissK9pyefOG8fuyB-lciJw&usqp=CAU'},
     {name:'Brown Watch 1919 CHRONOTIMER', price: 6733.62, category: 'accessories', image: 'https://k8q7r7a2.stackpathcdn.com/wp-content/uploads/2018/05/Porsche-design-1919-Chronotimer-Flyback-Brown-and-Leather-Baselworld-2018-1.jpg'},
@@ -62,7 +63,11 @@ app.get("/getProducts", (req,res) => {
     res.send(products);
 })
 
-app.listen("3000", () => {
-    console.log("Server running on PORT: 3000");
+// app.listen("3000", () => {
+//     console.log("Server running on PORT: 3000");
+// })
+// Heroku dynamically assigns your app a port. Heroku adds the port to the env.
+//PORT 3000 is for local Dev Enviromnet.
+app.listen(PORT, () => {
+    console.log(`Server running on PORT: ${PORT}` );
 })
-
