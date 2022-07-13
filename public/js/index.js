@@ -1,9 +1,10 @@
+var baseUrl = window.location.href;
 $( document ).ready(function() {
     $(".dropdown-menu li a").click(function(){
 
         $(".bttn-dropdown > span").text($(this).text());
         $(".bttn-dropdown > span").val($(this).text());
-  
+
      });
 });
 
@@ -22,7 +23,7 @@ var productsChildComp = Vue.component('app-product', {
         }
     },
     mounted: function() {
-        fetch('http://localhost:3000/getProducts')
+        fetch(baseUrl + 'getProducts')
         .then(res => res.json())
         .then((data) => {
             for(var i = 0; i < data.length; i++){
@@ -42,7 +43,7 @@ var productsChildComp = Vue.component('app-product', {
             get: function() {
 
                 return this.products.filter((product) => {
-                    
+
                     if( this.search.split(':')[0] === 'tag'){
                         var t = this.search.split(':');
                         return product.category.match(t[1])
@@ -88,7 +89,7 @@ var productsChildComp = Vue.component('app-product', {
             var a = []
             for(var i = 0; i < p.length; i++){
                 a.push(p[i]);
-            
+
                 if(a.length === 8 || p.length - 1 === i || a.length === p.length){
                     this.totalPages++
                     a = [];
@@ -145,7 +146,7 @@ var productsChildComp = Vue.component('app-product', {
             }
         }
     },
-    template: 
+    template:
     `<div>
         <div class="row" style="border-bottom: 1px solid lightgrey;">
             <div class="col-lg-4"></div>
@@ -187,7 +188,7 @@ var productsChildComp = Vue.component('app-product', {
                                 </div>
                             </td>
                             <td>
-                                
+
                             </td>
                         </tr>
                     </table>
@@ -201,7 +202,7 @@ var productsChildComp = Vue.component('app-product', {
                     <div class="product-image-container">
                         <img :src="product.image" />
                     </div>
-                    
+
                     <span class="product-price">{{product.price}} </span>
                     <span class="product-name">{{product.name}}</span>
                 </div>
@@ -229,7 +230,7 @@ var productsChildComp = Vue.component('app-product', {
                                 </div>
                             </td>
                             <td>
-                                
+
                             </td>
                         </tr>
                     </table>
@@ -286,10 +287,8 @@ new Vue({
         }else if($(".bttn-dropdown > span").text() === 'High-low price'){
             this.$refs.productsChildComp.highToLowSorter();
         }
-        
+
         this.$refs.productsChildComp.totalPages = 0;
         this.$refs.productsChildComp.totalPagesOfProducts(this.$refs.productsChildComp.filteredProducts);
     }
 })
-
-
