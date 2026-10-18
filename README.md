@@ -1,5 +1,5 @@
 # e-commerce-app
-Mikeb's REACT.js E-Commerce-APP
+Mikeb's VUE.js E-Commerce-APP
 
 # Foobar
 
